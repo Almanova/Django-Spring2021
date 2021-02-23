@@ -1,0 +1,16 @@
+{% extends "todo_list.html" %}
+
+{% block row %}
+    {% if todo.completed %}
+        <tr>
+            <td><a href="">{{ todo.name }}</a></td>
+            <td>{{ todo.created_at }}</td>
+            <td>{{ todo.due_date }}</td>
+            <td>{{ todo.owner }}</td>
+            <td><button class="mark">Not Done</button></td>
+        </tr>
+    {% endif %}
+{% endblock %}
+{% block switch %}
+    <button class="switch">View incomplete tasks</button>
+{% endblock %}
