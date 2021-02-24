@@ -1,5 +1,8 @@
 {% extends "todo_list.html" %}
 
+{% block title %}
+    <h1>Completed tasks in 'List 1'</h1>
+{% endblock %}
 {% block row %}
     {% if todo.completed %}
         <tr>

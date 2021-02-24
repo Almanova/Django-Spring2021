@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TODO List</title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
 </head>
 <body>
@@ -13,7 +13,9 @@
     </header>
     <div class="content">
     <button class="add-task">Add Task</button>
-    <h1>Tasks in 'List 1'</h1>
+    {% block title %}
+        <h1>Tasks in 'List 1'</h1>
+    {% endblock %}
     <table>
         <thead>
             <tr>
