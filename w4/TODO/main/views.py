@@ -7,10 +7,10 @@ from utils.json_tool import read_json
 class Todos(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'todo_list.html'
-    todos = read_json('static/mock/todos.json')
 
     def get(self, request):
-        return Response({'todos': self.todos})
+        todos = read_json('static/mock/todos.json')
+        return Response({'todos': todos})
 
 
 class CompletedTodos(Todos):
