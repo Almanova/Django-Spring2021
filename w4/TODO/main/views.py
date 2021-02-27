@@ -8,9 +8,10 @@ class Todos(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'todo_list.html'
 
-    def get(self, request):
-        todos = read_json('static/mock/todos.json')
-        return Response({'todos': todos})
+    def get(self, request, pk):
+        todos = filter(lambda todo: todo['list_id'] == pk,
+                       read_json('static/mock/todos.json'))
+        return Response({'todos': todos, 'list_id': pk})
 
 
 class CompletedTodos(Todos):
