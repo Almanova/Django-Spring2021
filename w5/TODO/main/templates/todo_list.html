@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <header>
+        Django TODO
+    </header>
+    <div class="content">
+        <button class="add-task">Add Task</button>
+        {% block title %}
+            <h1>Tasks in '{{ todo_list.name }}'</h1>
+        {% endblock %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Created</th>
+                    <th>Due on</th>
+                    <th>Owner</th>
+                    <th>Mark</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo in todo_list.tasks %}
+                    <tr>
+                        <td><a href="">{{ todo.name }}</a></td>
+                        <td>{{ todo.created_at }}</td>
+                        <td>{{ todo.due_on }}</td>
+                        <td>{{ todo.owner }}</td>
+                        {% block mark %}
+                            <td><button class="mark">Done</button></td>
+                        {% endblock %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% block switch %}
+            <button class="switch">View completed tasks</button>
+        {% endblock %}
+        <button class="delete">Delete this list</button>
+    </div>
+</body>
+</html>

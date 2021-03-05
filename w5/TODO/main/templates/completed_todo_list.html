@@ -1,0 +1,11 @@
+{% extends "todo_list.html" %}
+
+{% block title %}
+    <h1>Completed tasks in '{{ todo_list.name }}'</h1>
+{% endblock %}
+{% block mark %}
+    <td><button class="mark">Not Done</button></td>
+{% endblock %}
+{% block switch %}
+    <button class="switch">View incomplete tasks</button>
+{% endblock %}
